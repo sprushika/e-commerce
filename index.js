@@ -81,13 +81,10 @@ function getData(data) {
 
     });
 }
-// console.log(arr);
-//
+/*Add to cart*/
 function addToCart(e, singleId) {
 
-    let
-        // addButton = document.querySelector('.add-btn'),
-        addedBtn = e.target.classList.contains('add-btn') ? e.target : '',
+    let addedBtn = e.target.classList.contains('add-btn') ? e.target : '',
         disabled = true,
         cartItem = document.createElement('div');
     if(e.target === addedBtn) {
@@ -104,13 +101,15 @@ function addToCart(e, singleId) {
         emptyCartLabel.innerText = '';
     }
 }
-cartListClose.addEventListener('click', closeSidebar);
 
+/*Close Cart*/
+cartListClose.addEventListener('click', closeSidebar);
 function closeSidebar (e) {
     sidebarPanel.classList.toggle('hide');
 }
-cartListOpen.addEventListener('click', openSidebar);
 
+/*Open my order list*/
+cartListOpen.addEventListener('click', openSidebar);
 function openSidebar (e) {
     sidebarPanel.classList.toggle('hide');
 }
