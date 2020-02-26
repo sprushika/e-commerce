@@ -70,12 +70,12 @@ function getData(data) {
         }
 
         addButton.innerText = "Add";
-        // addButton.appendChild(addIcon);
         addButton.onclick = function() {
           addToCart(event, ele[captions[1]]);
         };
         cardFooter.appendChild(addButton);
         li.appendChild(cardFooter);
+
         //Send to the html
         ul.appendChild(li);
 
@@ -96,7 +96,6 @@ function addToCart(e, singleId) {
                 addedBtn.innerText = 'Added';
                 addedBtn.setAttribute('disabled', disabled);
             }
-            // console.log(ele[[i]] === arr[i[singleId]]);
         });
         emptyCartLabel.innerText = '';
     }
