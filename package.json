@@ -1,0 +1,10 @@
+{
+  "name": "e-commerce",
+  "version": "1.0.0",
+  "dependencies": {
+    "node-sass": "^4.13.1"
+  },
+  "scripts": {
+    "css": "node-sass scss/styles.scss -o css"
+  }
+}
