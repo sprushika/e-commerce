@@ -1,4 +1,9 @@
 const ul = document.getElementById("output");
+const sidebarPanel = document.getElementById("sidebar");
+const emptyCartLabel = document.getElementById("empty-cart");
+const cartListClose = document.getElementById("closeSidebar");
+const cartListOpen = document.getElementById("openSidebar");
+const arr = [];
 
 function loadData() {
 
@@ -21,6 +26,7 @@ function getData(data) {
         disabled = true;
 
     dataArr.forEach((ele, index) => {
+        arr.push(ele);
         let available = ele[captions[4]] === 'Available';
 
         const li = document.createElement("li");
@@ -30,11 +36,11 @@ function getData(data) {
         const idValue = document.createElement("div");
         idValue.classList.add("sport","card-title");
         const color = document.createElement("div");
-        color.classList.add("age");
+        color.classList.add("color");
         const price = document.createElement("div");
-        price.classList.add("country");
-        const availability = document.createElement("div");
-        availability.classList.add("year");
+        price.classList.add("price");
+        const availability = document.createElement("span");
+        availability.classList.add("availability");
 
         title.textContent = ele[captions[0]];
         idValue.textContent = ele[captions[1]];
@@ -49,12 +55,13 @@ function getData(data) {
         cardBody.appendChild(idValue);
         cardBody.appendChild(color);
         cardBody.appendChild(price);
-        // cardBody.appendChild(availability);
         li.appendChild(cardBody);
 
         //Add button
         const cardFooter = document.createElement('div');
         cardFooter.classList.add('card-footer', 'text-center');
+        if(ele[captions[4]] !== 'Available')
+            cardFooter.appendChild(availability);
         const addButton = document.createElement('button');
         addButton.classList.add('add-btn', 'btn', 'btn-primary');
         const addIcon = document.createElement('span');
@@ -62,9 +69,11 @@ function getData(data) {
             addButton.style.display = 'none';
         }
 
-        addIcon.innerText = "+";
-        addIcon.classList.add('add-icon');
-        addButton.appendChild(addIcon);
+        addButton.innerText = "Add";
+        // addButton.appendChild(addIcon);
+        addButton.onclick = function() {
+          addToCart(event, ele[captions[1]]);
+        };
         cardFooter.appendChild(addButton);
         li.appendChild(cardFooter);
         //Send to the html
@@ -72,4 +81,36 @@ function getData(data) {
 
     });
 }
+// console.log(arr);
+//
+function addToCart(e, singleId) {
 
+    let
+        // addButton = document.querySelector('.add-btn'),
+        addedBtn = e.target.classList.contains('add-btn') ? e.target : '',
+        disabled = true,
+        cartItem = document.createElement('div');
+    if(e.target === addedBtn) {
+        sidebarPanel.classList.remove('hide');
+        arr.forEach((ele, i) => {
+            if (ele.id === singleId) {
+                cartItem.innerText = ele.title;
+                sidebarPanel.appendChild(cartItem);
+                addedBtn.innerText = 'Added';
+                addedBtn.setAttribute('disabled', disabled);
+            }
+            // console.log(ele[[i]] === arr[i[singleId]]);
+        });
+        emptyCartLabel.innerText = '';
+    }
+}
+cartListClose.addEventListener('click', closeSidebar);
+
+function closeSidebar (e) {
+    sidebarPanel.classList.toggle('hide');
+}
+cartListOpen.addEventListener('click', openSidebar);
+
+function openSidebar (e) {
+    sidebarPanel.classList.toggle('hide');
+}

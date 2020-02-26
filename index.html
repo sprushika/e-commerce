@@ -9,26 +9,67 @@
         <link href="https://fonts.googleapis.com/css?family=Dosis:400,700" rel="stylesheet" />
         <link href="css/bootstrap.css" rel="stylesheet" />
         <style>
+            .hide {
+                display: none;
+            }
             li.list-item.card {
                 max-width: 338px;
             }
             .card-footer {
                 height: 63px;
             }
+            /*.availability {*/
+                /*position: absolute;*/
+            /*}*/
+            .sidebar {
+                position: absolute;
+                right: 0;
+                top: 0;
+                width: 20rem;
+                height: 100%;
+                background-color: #fff;
+                padding: 20px;
+                margin: 0;
+            }
+            .close-icon {
+                /*border: 1px solid;*/
+                border-radius: 50%;
+                position: absolute;
+                right: 0;
+                width: 30px;
+                height: 30px;
+                line-height: 20px;
+                text-align: center;
+                font-size: 12px;
+                padding: 0;
+            }
+            .open-sidebar-btn {
+                position: absolute;
+                top: 1rem;
+                right: 1rem;
+                text-align: center;
+                font-size: 12px;
+            }
         </style>
     </head>
 
     <body onload="loadData()">
-        <div id="root" class="hide">
+        <div id="root" >
             <!--<button id="data-button" class="btn btn-block">-->
                 <!--Get Data-->
             <!--</button>-->
             <ul id="output" class="container card-columns">
             </ul>
+            <button id="openSidebar" class="btn btn-primary open-sidebar-btn">Open cart</button>
+            <div id="sidebar" class="sidebar card hide">
+                <ul id="cart-ul" class="cart-ul">
+                    <h3>Orders List</h3>
+                </ul>
+                <label id="empty-cart" class="empty-cart">Your cart it empty</label>
+
+                <button id="closeSidebar" class="btn btn-light close-icon">x</button>
+            </div>
         </div>
-
-
-
 
         <script src="jsExamplesScript.js"></script>
         <script src="generatedIndex.js"></script>
