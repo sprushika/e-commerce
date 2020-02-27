@@ -1,0 +1,635 @@
+Index: index.html
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><!DOCTYPE html>\n<html lang=\"en\">\n    <head>\n        <meta charset=\"utf-8\" />\n        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\" />\n\n        <title>JS App</title>\n\n        <link href=\"https://fonts.googleapis.com/css?family=Dosis:400,700\" rel=\"stylesheet\" />\n        <link href=\"css/bootstrap.css\" rel=\"stylesheet\"/>\n        <link href=\"styles.css\" rel=\"stylesheet\">\n    </head>\n\n    <body onload=\"loadData()\">\n        <div id=\"root\" >\n            <ul id=\"output\" class=\"container card-columns\">\n            </ul>\n            <button id=\"openSidebar\" class=\"btn btn-primary open-sidebar-btn\">Open cart</button>\n            <div id=\"sidebar\" class=\"sidebar card hide\">\n                <ul id=\"cart-ul\" class=\"cart-ul\">\n                    <h3>Orders List</h3>\n                </ul>\n                <label id=\"empty-cart\" class=\"empty-cart\">Your cart it empty</label>\n\n                <button id=\"closeSidebar\" class=\"btn btn-light close-icon\">x</button>\n            </div>\n        </div>\n\n        <script src=\"index.js\"></script>\n    </body>\n</html>\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- index.html	(revision a94f174574499616536edbb25cf4ce09b72788d2)
++++ index.html	(date 1582777004000)
+@@ -8,7 +8,7 @@
+ 
+         <link href="https://fonts.googleapis.com/css?family=Dosis:400,700" rel="stylesheet" />
+         <link href="css/bootstrap.css" rel="stylesheet"/>
+-        <link href="styles.css" rel="stylesheet">
++        <link href="./css/styles.css" rel="stylesheet">
+     </head>
+ 
+     <body onload="loadData()">
+Index: scss/styles.scss
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>\n.hide {\n    display: none;\n}\nli.list-item.card {\n    max-width: 338px;\n}\n.card-footer {\n    height: 63px;\n}\n/*.availability {*/\n/*position: absolute;*/\n/*}*/\n.sidebar {\n    position: absolute;\n    right: 0;\n    top: 0;\n    width: 20rem;\n    height: 100%;\n    background-color: #fff;\n    padding: 20px;\n    margin: 0;\n}\n.close-icon {\n    /*border: 1px solid;*/\n    border-radius: 50%;\n    position: absolute;\n    right: 0;\n    width: 30px;\n    height: 30px;\n    line-height: 20px;\n    text-align: center;\n    font-size: 12px;\n    padding: 0;\n}\n.open-sidebar-btn {\n    position: absolute;\n    top: 1rem;\n    right: 1rem;\n    text-align: center;\n    font-size: 12px;\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- scss/styles.scss	(revision a94f174574499616536edbb25cf4ce09b72788d2)
++++ scss/styles.scss	(date 1582777533000)
+@@ -1,3 +1,5 @@
++//@import "variables";
++@import "bootswatch";
+ 
+ .hide {
+     display: none;
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<project version=\"4\">\n  <component name=\"ChangeListManager\">\n    <list default=\"true\" id=\"38c95aa0-875c-4cbf-a3ca-0c0054db2341\" name=\"Default Changelist\" comment=\"\">\n      <change afterPath=\"$PROJECT_DIR$/package.json\" afterDir=\"false\" />\n      <change afterPath=\"$PROJECT_DIR$/scss/styles.scss\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\n    </list>\n    <ignored path=\"$PROJECT_DIR$/.tmp/\" />\n    <ignored path=\"$PROJECT_DIR$/temp/\" />\n    <ignored path=\"$PROJECT_DIR$/tmp/\" />\n    <option name=\"EXCLUDED_CONVERTED_TO_IGNORED\" value=\"true\" />\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\n  </component>\n  <component name=\"FileEditorManager\">\n    <splitter split-orientation=\"horizontal\" split-proportion=\"0.48169717\">\n      <split-first>\n        <leaf SIDE_TABS_SIZE_LIMIT_KEY=\"300\">\n          <file pinned=\"false\" current-in-tab=\"false\">\n            <entry file=\"file://$PROJECT_DIR$/index.js\">\n              <provider selected=\"true\" editor-type-id=\"text-editor\">\n                <state relative-caret-position=\"240\">\n                  <caret line=\"101\" column=\"1\" selection-start-line=\"101\" selection-start-column=\"1\" selection-end-line=\"101\" selection-end-column=\"1\" />\n                </state>\n              </provider>\n            </entry>\n          </file>\n          <file pinned=\"false\" current-in-tab=\"true\">\n            <entry file=\"file://$PROJECT_DIR$/scss/styles.scss\">\n              <provider selected=\"true\" editor-type-id=\"text-editor\">\n                <state relative-caret-position=\"225\">\n                  <caret line=\"15\" column=\"5\" lean-forward=\"true\" selection-start-line=\"15\" selection-start-column=\"5\" selection-end-line=\"15\" selection-end-column=\"5\" />\n                </state>\n              </provider>\n            </entry>\n          </file>\n          <file pinned=\"false\" current-in-tab=\"false\">\n            <entry file=\"file://$PROJECT_DIR$/localData.json\">\n              <provider selected=\"true\" editor-type-id=\"text-editor\">\n                <state relative-caret-position=\"180\">\n                  <caret line=\"12\" column=\"23\" selection-start-line=\"12\" selection-start-column=\"23\" selection-end-line=\"12\" selection-end-column=\"23\" />\n                </state>\n              </provider>\n            </entry>\n          </file>\n        </leaf>\n      </split-first>\n      <split-second>\n        <leaf SIDE_TABS_SIZE_LIMIT_KEY=\"300\">\n          <file pinned=\"false\" current-in-tab=\"false\">\n            <entry file=\"file://$PROJECT_DIR$/css/bootstrap.css\">\n              <provider selected=\"true\" editor-type-id=\"text-editor\">\n                <state relative-caret-position=\"15\">\n                  <caret line=\"2786\" column=\"18\" selection-start-line=\"2786\" selection-start-column=\"18\" selection-end-line=\"2786\" selection-end-column=\"18\" />\n                </state>\n              </provider>\n            </entry>\n          </file>\n          <file pinned=\"false\" current-in-tab=\"false\">\n            <entry file=\"file://$PROJECT_DIR$/index.html\">\n              <provider selected=\"true\" editor-type-id=\"text-editor\">\n                <state relative-caret-position=\"361\">\n                  <caret line=\"27\" selection-start-line=\"27\" selection-end-line=\"27\" />\n                </state>\n              </provider>\n            </entry>\n          </file>\n          <file pinned=\"false\" current-in-tab=\"true\">\n            <entry file=\"file://$PROJECT_DIR$/package.json\">\n              <provider selected=\"true\" editor-type-id=\"text-editor\">\n                <state relative-caret-position=\"105\">\n                  <caret line=\"7\" column=\"27\" selection-start-line=\"7\" selection-start-column=\"27\" selection-end-line=\"7\" selection-end-column=\"27\" />\n                </state>\n              </provider>\n            </entry>\n          </file>\n        </leaf>\n      </split-second>\n    </splitter>\n  </component>\n  <component name=\"FileTemplateManagerImpl\">\n    <option name=\"RECENT_TEMPLATES\">\n      <list>\n        <option value=\"CSS File\" />\n        <option value=\"package.json\" />\n      </list>\n    </option>\n  </component>\n  <component name=\"FindInProjectRecents\">\n    <findStrings>\n      <find>icon</find>\n      <find>btn-ic</find>\n      <find>container</find>\n      <find>animat</find>\n      <find>animate</find>\n      <find>animation</find>\n      <find>cartListClose</find>\n      <find>hide</find>\n      <find>cartListUl</find>\n    </findStrings>\n    <replaceStrings>\n      <replace>sidebarPanel</replace>\n    </replaceStrings>\n  </component>\n  <component name=\"Git.Settings\">\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\n  </component>\n  <component name=\"IdeDocumentHistory\">\n    <option name=\"CHANGED_PATHS\">\n      <list>\n        <option value=\"$PROJECT_DIR$/generated.json\" />\n        <option value=\"$PROJECT_DIR$/generatedIndex.js\" />\n        <option value=\"$PROJECT_DIR$/style.css\" />\n        <option value=\"$PROJECT_DIR$/index.html\" />\n        <option value=\"$PROJECT_DIR$/index.js\" />\n        <option value=\"$PROJECT_DIR$/scss/styles.css\" />\n        <option value=\"$PROJECT_DIR$/scss/styles.scss\" />\n        <option value=\"$PROJECT_DIR$/package.json\" />\n      </list>\n    </option>\n  </component>\n  <component name=\"ProjectFrameBounds\">\n    <option name=\"width\" value=\"1440\" />\n    <option name=\"height\" value=\"843\" />\n  </component>\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\" />\n  <component name=\"ProjectView\">\n    <navigator proportions=\"\" version=\"1\">\n      <foldersAlwaysOnTop value=\"true\" />\n    </navigator>\n    <panes>\n      <pane id=\"Scope\" />\n      <pane id=\"ProjectPane\">\n        <subPane>\n          <expand>\n            <path>\n              <item name=\"e-commerce\" type=\"b2602c69:ProjectViewProjectNode\" />\n              <item name=\"e-commerce\" type=\"462c0819:PsiDirectoryNode\" />\n            </path>\n            <path>\n              <item name=\"e-commerce\" type=\"b2602c69:ProjectViewProjectNode\" />\n              <item name=\"e-commerce\" type=\"462c0819:PsiDirectoryNode\" />\n              <item name=\"css\" type=\"462c0819:PsiDirectoryNode\" />\n            </path>\n            <path>\n              <item name=\"e-commerce\" type=\"b2602c69:ProjectViewProjectNode\" />\n              <item name=\"e-commerce\" type=\"462c0819:PsiDirectoryNode\" />\n              <item name=\"js\" type=\"462c0819:PsiDirectoryNode\" />\n            </path>\n            <path>\n              <item name=\"e-commerce\" type=\"b2602c69:ProjectViewProjectNode\" />\n              <item name=\"e-commerce\" type=\"462c0819:PsiDirectoryNode\" />\n              <item name=\"scss\" type=\"462c0819:PsiDirectoryNode\" />\n            </path>\n          </expand>\n          <select />\n        </subPane>\n      </pane>\n    </panes>\n  </component>\n  <component name=\"PropertiesComponent\">\n    <property name=\"WebServerToolWindowFactoryState\" value=\"false\" />\n    <property name=\"list.type.of.created.stylesheet\" value=\"CSS\" />\n    <property name=\"nodejs_interpreter_path.stuck_in_default_project\" value=\"undefined stuck path\" />\n    <property name=\"nodejs_npm_path_reset_for_default_project\" value=\"true\" />\n    <property name=\"settings.editor.selected.configurable\" value=\"preferences.keymap\" />\n  </component>\n  <component name=\"RecentsManager\">\n    <key name=\"MoveFile.RECENT_KEYS\">\n      <recent name=\"$PROJECT_DIR$/scss\" />\n      <recent name=\"$PROJECT_DIR$\" />\n      <recent name=\"$PROJECT_DIR$/js\" />\n    </key>\n  </component>\n  <component name=\"RunDashboard\">\n    <option name=\"ruleStates\">\n      <list>\n        <RuleState>\n          <option name=\"name\" value=\"ConfigurationTypeDashboardGroupingRule\" />\n        </RuleState>\n        <RuleState>\n          <option name=\"name\" value=\"StatusDashboardGroupingRule\" />\n        </RuleState>\n      </list>\n    </option>\n  </component>\n  <component name=\"SvnConfiguration\">\n    <configuration />\n  </component>\n  <component name=\"TaskManager\">\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\n      <changelist id=\"38c95aa0-875c-4cbf-a3ca-0c0054db2341\" name=\"Default Changelist\" comment=\"\" />\n      <created>1582626283436</created>\n      <option name=\"number\" value=\"Default\" />\n      <option name=\"presentableId\" value=\"Default\" />\n      <updated>1582626283436</updated>\n      <workItem from=\"1582626284606\" duration=\"4594000\" />\n      <workItem from=\"1582632500001\" duration=\"876000\" />\n      <workItem from=\"1582696565785\" duration=\"10739000\" />\n    </task>\n    <servers />\n  </component>\n  <component name=\"TimeTrackingManager\">\n    <option name=\"totallyTimeSpent\" value=\"16209000\" />\n  </component>\n  <component name=\"ToolWindowManager\">\n    <frame x=\"0\" y=\"0\" width=\"1440\" height=\"843\" extended-state=\"0\" />\n    <layout>\n      <window_info content_ui=\"combo\" id=\"Project\" order=\"0\" visible=\"true\" weight=\"0.1529246\" />\n      <window_info id=\"Structure\" order=\"1\" side_tool=\"true\" weight=\"0.25\" />\n      <window_info id=\"Favorites\" order=\"2\" side_tool=\"true\" />\n      <window_info anchor=\"bottom\" id=\"Message\" order=\"0\" />\n      <window_info anchor=\"bottom\" id=\"Find\" order=\"1\" weight=\"0.32967034\" />\n      <window_info anchor=\"bottom\" id=\"Run\" order=\"2\" />\n      <window_info anchor=\"bottom\" id=\"Debug\" order=\"3\" weight=\"0.4\" />\n      <window_info anchor=\"bottom\" id=\"Cvs\" order=\"4\" weight=\"0.25\" />\n      <window_info anchor=\"bottom\" id=\"Inspection\" order=\"5\" weight=\"0.4\" />\n      <window_info anchor=\"bottom\" id=\"TODO\" order=\"6\" />\n      <window_info anchor=\"bottom\" id=\"Docker\" order=\"7\" show_stripe_button=\"false\" />\n      <window_info anchor=\"bottom\" id=\"Quokka\" order=\"8\" />\n      <window_info anchor=\"bottom\" id=\"Version Control\" order=\"9\" sideWeight=\"0.4982382\" visible=\"true\" weight=\"0.29532966\" />\n      <window_info anchor=\"bottom\" id=\"Gerrit\" order=\"10\" weight=\"0.32967034\" />\n      <window_info active=\"true\" anchor=\"bottom\" id=\"Terminal\" order=\"11\" sideWeight=\"0.5017618\" side_tool=\"true\" visible=\"true\" weight=\"0.29532966\" />\n      <window_info anchor=\"bottom\" id=\"Event Log\" order=\"12\" side_tool=\"true\" />\n      <window_info anchor=\"right\" id=\"Commander\" internal_type=\"SLIDING\" order=\"0\" type=\"SLIDING\" weight=\"0.4\" />\n      <window_info anchor=\"right\" id=\"Ant Build\" order=\"1\" weight=\"0.25\" />\n      <window_info anchor=\"right\" content_ui=\"combo\" id=\"Hierarchy\" order=\"2\" weight=\"0.25\" />\n    </layout>\n  </component>\n  <component name=\"TypeScriptGeneratedFilesManager\">\n    <option name=\"version\" value=\"1\" />\n  </component>\n  <component name=\"editorHistoryManager\">\n    <entry file=\"file://$PROJECT_DIR$/.idea/vcs.xml\">\n      <provider selected=\"true\" editor-type-id=\"text-editor\">\n        <state relative-caret-position=\"75\">\n          <caret line=\"5\" column=\"10\" lean-forward=\"true\" selection-start-line=\"5\" selection-start-column=\"10\" selection-end-line=\"5\" selection-end-column=\"10\" />\n        </state>\n      </provider>\n    </entry>\n    <entry file=\"file://$PROJECT_DIR$/.idea/workspace.xml\">\n      <provider selected=\"true\" editor-type-id=\"text-editor\" />\n    </entry>\n    <entry file=\"file://$PROJECT_DIR$/index.js\">\n      <provider selected=\"true\" editor-type-id=\"text-editor\">\n        <state relative-caret-position=\"90\">\n          <caret line=\"6\" column=\"27\" selection-start-line=\"6\" selection-start-column=\"11\" selection-end-line=\"6\" selection-end-column=\"27\" />\n        </state>\n      </provider>\n    </entry>\n    <entry file=\"file://$PROJECT_DIR$/css/bootstrap.css\">\n      <provider selected=\"true\" editor-type-id=\"text-editor\">\n        <state relative-caret-position=\"15\">\n          <caret line=\"2786\" column=\"18\" selection-start-line=\"2786\" selection-start-column=\"18\" selection-end-line=\"2786\" selection-end-column=\"18\" />\n        </state>\n      </provider>\n    </entry>\n    <entry file=\"file://$PROJECT_DIR$/logo.png\">\n      <provider selected=\"true\" editor-type-id=\"images\" />\n    </entry>\n    <entry file=\"file://$USER_HOME$/Documents/index.js\">\n      <provider selected=\"true\" editor-type-id=\"text-editor\">\n        <state>\n          <folding>\n            <element signature=\"n#!!doc\" expanded=\"true\" />\n          </folding>\n        </state>\n      </provider>\n    </entry>\n    <entry file=\"file://$PROJECT_DIR$/localData.json\">\n      <provider selected=\"true\" editor-type-id=\"text-editor\">\n        <state relative-caret-position=\"180\">\n          <caret line=\"12\" column=\"23\" selection-start-line=\"12\" selection-start-column=\"23\" selection-end-line=\"12\" selection-end-column=\"23\" />\n        </state>\n      </provider>\n    </entry>\n    <entry file=\"file://$PROJECT_DIR$/index.html\">\n      <provider selected=\"true\" editor-type-id=\"text-editor\">\n        <state relative-caret-position=\"361\">\n          <caret line=\"27\" selection-start-line=\"27\" selection-end-line=\"27\" />\n        </state>\n      </provider>\n    </entry>\n    <entry file=\"file://$PROJECT_DIR$/index.js\">\n      <provider selected=\"true\" editor-type-id=\"text-editor\">\n        <state relative-caret-position=\"240\">\n          <caret line=\"101\" column=\"1\" selection-start-line=\"101\" selection-start-column=\"1\" selection-end-line=\"101\" selection-end-column=\"1\" />\n        </state>\n      </provider>\n    </entry>\n    <entry file=\"file://$PROJECT_DIR$/scss/styles.scss\">\n      <provider selected=\"true\" editor-type-id=\"text-editor\">\n        <state relative-caret-position=\"225\">\n          <caret line=\"15\" column=\"5\" lean-forward=\"true\" selection-start-line=\"15\" selection-start-column=\"5\" selection-end-line=\"15\" selection-end-column=\"5\" />\n        </state>\n      </provider>\n    </entry>\n    <entry file=\"file://$PROJECT_DIR$/package.json\">\n      <provider selected=\"true\" editor-type-id=\"text-editor\">\n        <state relative-caret-position=\"105\">\n          <caret line=\"7\" column=\"27\" selection-start-line=\"7\" selection-start-column=\"27\" selection-end-line=\"7\" selection-end-column=\"27\" />\n        </state>\n      </provider>\n    </entry>\n  </component>\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/workspace.xml	(revision a94f174574499616536edbb25cf4ce09b72788d2)
++++ .idea/workspace.xml	(date 1582778195000)
+@@ -2,9 +2,11 @@
+ <project version="4">
+   <component name="ChangeListManager">
+     <list default="true" id="38c95aa0-875c-4cbf-a3ca-0c0054db2341" name="Default Changelist" comment="">
+-      <change afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/scss/styles.scss" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/scss/bootswatch.scss" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/scss/variables.scss" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/scss/styles.scss" beforeDir="false" afterPath="$PROJECT_DIR$/scss/styles.scss" afterDir="false" />
+     </list>
+     <ignored path="$PROJECT_DIR$/.tmp/" />
+     <ignored path="$PROJECT_DIR$/temp/" />
+@@ -16,7 +18,7 @@
+     <option name="LAST_RESOLUTION" value="IGNORE" />
+   </component>
+   <component name="FileEditorManager">
+-    <splitter split-orientation="horizontal" split-proportion="0.48169717">
++    <splitter split-orientation="horizontal" split-proportion="0.3327787">
+       <split-first>
+         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+           <file pinned="false" current-in-tab="false">
+@@ -31,8 +33,17 @@
+           <file pinned="false" current-in-tab="true">
+             <entry file="file://$PROJECT_DIR$/scss/styles.scss">
+               <provider selected="true" editor-type-id="text-editor">
+-                <state relative-caret-position="225">
+-                  <caret line="15" column="5" lean-forward="true" selection-start-line="15" selection-start-column="5" selection-end-line="15" selection-end-column="5" />
++                <state relative-caret-position="15">
++                  <caret line="1" column="14" selection-start-line="1" selection-start-column="14" selection-end-line="1" selection-end-column="14" />
++                </state>
++              </provider>
++            </entry>
++          </file>
++          <file pinned="false" current-in-tab="false">
++            <entry file="file://$PROJECT_DIR$/scss/variables.scss">
++              <provider selected="true" editor-type-id="text-editor">
++                <state relative-caret-position="106">
++                  <caret line="9" column="28" selection-start-line="9" selection-start-column="28" selection-end-line="9" selection-end-column="28" />
+                 </state>
+               </provider>
+             </entry>
+@@ -62,17 +73,35 @@
+           <file pinned="false" current-in-tab="false">
+             <entry file="file://$PROJECT_DIR$/index.html">
+               <provider selected="true" editor-type-id="text-editor">
+-                <state relative-caret-position="361">
+-                  <caret line="27" selection-start-line="27" selection-end-line="27" />
++                <state relative-caret-position="150">
++                  <caret line="10" column="38" selection-start-line="10" selection-start-column="38" selection-end-line="10" selection-end-column="38" />
+                 </state>
+               </provider>
+             </entry>
+           </file>
+           <file pinned="false" current-in-tab="true">
++            <entry file="file://$PROJECT_DIR$/scss/bootswatch.scss">
++              <provider selected="true" editor-type-id="text-editor">
++                <state relative-caret-position="70">
++                  <caret line="104" selection-start-line="104" selection-end-line="104" />
++                </state>
++              </provider>
++            </entry>
++          </file>
++          <file pinned="false" current-in-tab="false">
+             <entry file="file://$PROJECT_DIR$/package.json">
+               <provider selected="true" editor-type-id="text-editor">
+-                <state relative-caret-position="105">
+-                  <caret line="7" column="27" selection-start-line="7" selection-start-column="27" selection-end-line="7" selection-end-column="27" />
++                <state relative-caret-position="150">
++                  <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
++                </state>
++              </provider>
++            </entry>
++          </file>
++          <file pinned="false" current-in-tab="false">
++            <entry file="file://$PROJECT_DIR$/css/styles.css">
++              <provider selected="true" editor-type-id="text-editor">
++                <state relative-caret-position="77">
++                  <caret line="7" column="17" lean-forward="true" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
+                 </state>
+               </provider>
+             </entry>
+@@ -100,6 +129,8 @@
+       <find>cartListClose</find>
+       <find>hide</find>
+       <find>cartListUl</find>
++      <find>sidebar</find>
++      <find>$table-active-bg</find>
+     </findStrings>
+     <replaceStrings>
+       <replace>sidebarPanel</replace>
+@@ -114,15 +145,17 @@
+         <option value="$PROJECT_DIR$/generated.json" />
+         <option value="$PROJECT_DIR$/generatedIndex.js" />
+         <option value="$PROJECT_DIR$/style.css" />
+-        <option value="$PROJECT_DIR$/index.html" />
+         <option value="$PROJECT_DIR$/index.js" />
+         <option value="$PROJECT_DIR$/scss/styles.css" />
++        <option value="$PROJECT_DIR$/package.json" />
++        <option value="$PROJECT_DIR$/css/styles.css" />
++        <option value="$PROJECT_DIR$/index.html" />
++        <option value="$PROJECT_DIR$/scss/_bootswatch.scss" />
+         <option value="$PROJECT_DIR$/scss/styles.scss" />
+-        <option value="$PROJECT_DIR$/package.json" />
+       </list>
+     </option>
+   </component>
+-  <component name="ProjectFrameBounds">
++  <component name="ProjectFrameBounds" fullScreen="true">
+     <option name="width" value="1440" />
+     <option name="height" value="843" />
+   </component>
+@@ -169,6 +202,9 @@
+     <property name="settings.editor.selected.configurable" value="preferences.keymap" />
+   </component>
+   <component name="RecentsManager">
++    <key name="CopyFile.RECENT_KEYS">
++      <recent name="$PROJECT_DIR$/scss" />
++    </key>
+     <key name="MoveFile.RECENT_KEYS">
+       <recent name="$PROJECT_DIR$/scss" />
+       <recent name="$PROJECT_DIR$" />
+@@ -199,15 +235,15 @@
+       <updated>1582626283436</updated>
+       <workItem from="1582626284606" duration="4594000" />
+       <workItem from="1582632500001" duration="876000" />
+-      <workItem from="1582696565785" duration="10739000" />
++      <workItem from="1582696565785" duration="12621000" />
+     </task>
+     <servers />
+   </component>
+   <component name="TimeTrackingManager">
+-    <option name="totallyTimeSpent" value="16209000" />
++    <option name="totallyTimeSpent" value="18091000" />
+   </component>
+   <component name="ToolWindowManager">
+-    <frame x="0" y="0" width="1440" height="843" extended-state="0" />
++    <frame x="0" y="0" width="1440" height="900" extended-state="0" />
+     <layout>
+       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1529246" />
+       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+@@ -221,9 +257,9 @@
+       <window_info anchor="bottom" id="TODO" order="6" />
+       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+       <window_info anchor="bottom" id="Quokka" order="8" />
+-      <window_info anchor="bottom" id="Version Control" order="9" sideWeight="0.4982382" visible="true" weight="0.29532966" />
++      <window_info active="true" anchor="bottom" id="Version Control" order="9" sideWeight="0.4982382" visible="true" weight="0.6431227" />
+       <window_info anchor="bottom" id="Gerrit" order="10" weight="0.32967034" />
+-      <window_info active="true" anchor="bottom" id="Terminal" order="11" sideWeight="0.5017618" side_tool="true" visible="true" weight="0.29532966" />
++      <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.5017618" side_tool="true" visible="true" weight="0.6431227" />
+       <window_info anchor="bottom" id="Event Log" order="12" side_tool="true" />
+       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+@@ -277,31 +313,52 @@
+         </state>
+       </provider>
+     </entry>
++    <entry file="file://$PROJECT_DIR$/index.js">
++      <provider selected="true" editor-type-id="text-editor">
++        <state relative-caret-position="240">
++          <caret line="101" column="1" selection-start-line="101" selection-start-column="1" selection-end-line="101" selection-end-column="1" />
++        </state>
++      </provider>
++    </entry>
++    <entry file="file://$PROJECT_DIR$/package.json">
++      <provider selected="true" editor-type-id="text-editor">
++        <state relative-caret-position="150">
++          <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
++        </state>
++      </provider>
++    </entry>
++    <entry file="file://$PROJECT_DIR$/css/styles.css">
++      <provider selected="true" editor-type-id="text-editor">
++        <state relative-caret-position="77">
++          <caret line="7" column="17" lean-forward="true" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
++        </state>
++      </provider>
++    </entry>
+     <entry file="file://$PROJECT_DIR$/index.html">
+       <provider selected="true" editor-type-id="text-editor">
+-        <state relative-caret-position="361">
+-          <caret line="27" selection-start-line="27" selection-end-line="27" />
++        <state relative-caret-position="150">
++          <caret line="10" column="38" selection-start-line="10" selection-start-column="38" selection-end-line="10" selection-end-column="38" />
+         </state>
+       </provider>
+     </entry>
+-    <entry file="file://$PROJECT_DIR$/index.js">
++    <entry file="file://$PROJECT_DIR$/scss/variables.scss">
+       <provider selected="true" editor-type-id="text-editor">
+-        <state relative-caret-position="240">
+-          <caret line="101" column="1" selection-start-line="101" selection-start-column="1" selection-end-line="101" selection-end-column="1" />
++        <state relative-caret-position="106">
++          <caret line="9" column="28" selection-start-line="9" selection-start-column="28" selection-end-line="9" selection-end-column="28" />
+         </state>
+       </provider>
+     </entry>
+     <entry file="file://$PROJECT_DIR$/scss/styles.scss">
+       <provider selected="true" editor-type-id="text-editor">
+-        <state relative-caret-position="225">
+-          <caret line="15" column="5" lean-forward="true" selection-start-line="15" selection-start-column="5" selection-end-line="15" selection-end-column="5" />
++        <state relative-caret-position="15">
++          <caret line="1" column="14" selection-start-line="1" selection-start-column="14" selection-end-line="1" selection-end-column="14" />
+         </state>
+       </provider>
+     </entry>
+-    <entry file="file://$PROJECT_DIR$/package.json">
++    <entry file="file://$PROJECT_DIR$/scss/bootswatch.scss">
+       <provider selected="true" editor-type-id="text-editor">
+-        <state relative-caret-position="105">
+-          <caret line="7" column="27" selection-start-line="7" selection-start-column="27" selection-end-line="7" selection-end-column="27" />
++        <state relative-caret-position="70">
++          <caret line="104" selection-start-line="104" selection-end-line="104" />
+         </state>
+       </provider>
+     </entry>
+Index: scss/bootswatch.scss
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- scss/bootswatch.scss	(date 1582777533000)
++++ scss/bootswatch.scss	(date 1582777533000)
+@@ -0,0 +1,247 @@
++// Flatly 4.3.1
++// Bootswatch
++
++
++// Variables ===================================================================
++
++$web-font-path: "https://fonts.googleapis.com/css?family=Lato:400,700,400italic&display=swap" !default;
++@import url($web-font-path);
++@import "variables";
++// Navbar =======================================================================
++
++.bg-primary {
++  .navbar-nav .active > .nav-link {
++    color: $success !important;
++  }
++}
++
++.bg-dark {
++  background-color: $success !important;
++  &.navbar-dark .navbar-nav {
++    .nav-link:focus,
++    .nav-link:hover,
++    .active > .nav-link {
++      color: $primary !important;
++    }
++  }
++}
++
++// Buttons =====================================================================
++
++.btn {
++  &-secondary,
++  &-secondary:hover,
++  &-warning,
++  &-warning:hover {
++    color: #fff;
++  }
++}
++
++// Typography ==================================================================
++
++// Tables ======================================================================
++
++.table {
++
++  &-primary,
++  &-secondary,
++  &-success,
++  &-info,
++  &-warning,
++  &-danger {
++    color: #fff;
++  }
++
++  &-primary {
++    &, > th, > td {
++      background-color: $primary;
++    }
++  }
++
++  &-secondary {
++    &, > th, > td {
++      background-color: $secondary;
++    }
++  }
++
++  &-light {
++    &, > th, > td {
++      background-color: $light;
++    }
++  }
++
++  &-dark {
++    &, > th, > td {
++      background-color: $dark;
++    }
++  }
++
++  &-success {
++    &, > th, > td {
++      background-color: $success;
++    }
++  }
++
++  &-info {
++    &, > th, > td {
++      background-color: $info;
++    }
++  }
++
++  &-danger {
++    &, > th, > td {
++      background-color: $danger;
++    }
++  }
++
++  &-warning {
++    &, > th, > td {
++      background-color: $warning;
++    }
++  }
++
++  &-active {
++    &, > th, > td {
++      background-color: $table-active-bg;
++    }
++  }
++
++  &-hover {
++
++    .table-primary:hover {
++      &, > th, > td {
++        background-color: darken($primary, 5%);
++      }
++    }
++
++    .table-secondary:hover {
++      &, > th, > td {
++        background-color: darken($secondary, 5%);
++      }
++    }
++
++    .table-light:hover {
++      &, > th, > td {
++        background-color: darken($light, 5%);
++      }
++    }
++
++    .table-dark:hover {
++      &, > th, > td {
++        background-color: darken($dark, 5%);
++      }
++    }
++
++    .table-success:hover {
++      &, > th, > td {
++        background-color: darken($success, 5%);
++      }
++    }
++
++    .table-info:hover {
++      &, > th, > td {
++        background-color: darken($info, 5%);
++      }
++    }
++
++    .table-danger:hover {
++      &, > th, > td {
++        background-color: darken($danger, 5%);
++      }
++    }
++
++    .table-warning:hover {
++      &, > th, > td {
++        background-color: darken($warning, 5%);
++      }
++    }
++
++    .table-active:hover {
++      &, > th, > td {
++        background-color: $table-active-bg;
++      }
++    }
++
++  }
++}
++
++// Forms =======================================================================
++
++// Navs ========================================================================
++
++.nav-tabs {
++  .nav-link.active,
++  .nav-link.active:focus,
++  .nav-link.active:hover,
++  .nav-item.open .nav-link,
++  .nav-item.open .nav-link:focus,
++  .nav-item.open .nav-link:hover {
++    color: $primary;
++  }
++}
++
++.pagination {
++  a:hover {
++    text-decoration: none;
++  }
++}
++
++// Indicators ==================================================================
++
++.close {
++  text-decoration: none;
++  opacity: 0.4;
++
++  &:hover,
++  &:focus {
++    opacity: 1;
++  }
++}
++
++.badge {
++  &-secondary,
++  &-warning {
++    color: #fff;
++  }
++}
++
++.alert {
++  border: none;
++  color: $white;
++
++  a,
++  .alert-link {
++    color: #fff;
++    text-decoration: underline;
++  }
++
++  @each $color, $value in $theme-colors {
++    &-#{$color} {
++      @if $enable-gradients {
++        background: $value linear-gradient(180deg, mix($body-bg, $value, 15%), $value) repeat-x;
++      } @else {
++        background-color: $value;
++      }
++    }
++  }
++
++  &-light {
++    &,
++    & a,
++    & .alert-link {
++      color: $body-color;
++    }
++  }
++}
++
++// Progress bars ===============================================================
++
++// Containers ==================================================================
++.modal .close{
++  color: $black;
++
++  &:not(:disabled):not(.disabled):hover,
++  &:not(:disabled):not(.disabled):focus {
++    color: $black;
++  }
++}
+Index: scss/variables.scss
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- scss/variables.scss	(date 1582777374000)
++++ scss/variables.scss	(date 1582777374000)
+@@ -0,0 +1,113 @@
++// Flatly 4.3.1
++// Bootswatch
++
++//
++// Color system
++//
++
++$white:    #fff !default;
++$gray-100: #f8f9fa !default;
++$gray-200: #ecf0f1 !default;
++$gray-300: #dee2e6 !default;
++$gray-400: #ced4da !default;
++$gray-500: #b4bcc2 !default;
++$gray-600: #95a5a6 !default;
++$gray-700: #7b8a8b !default;
++$gray-800: #343a40 !default;
++$gray-900: #212529 !default;
++$black:    #000 !default;
++
++$blue:    #2C3E50 !default;
++$indigo:  #6610f2 !default;
++$purple:  #6f42c1 !default;
++$pink:    #e83e8c !default;
++$red:     #E74C3C !default;
++$orange:  #fd7e14 !default;
++$yellow:  #F39C12 !default;
++$green:   #18BC9C !default;
++$teal:    #20c997 !default;
++$cyan:    #3498DB !default;
++
++$primary:       $blue !default;
++$secondary:     $gray-600 !default;
++$success:       $green !default;
++$info:          $cyan !default;
++$warning:       $yellow !default;
++$danger:        $red !default;
++$light:         $gray-200 !default;
++$dark:          $gray-700 !default;
++
++$yiq-contrasted-threshold:  175 !default;
++
++// Links
++
++$link-color:                $success !default;
++
++// Fonts
++
++$font-family-sans-serif:      "Lato", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol" !default;
++
++$font-size-base:              0.9375rem !default;
++
++$h1-font-size:                3rem !default;
++$h2-font-size:                2.5rem !default;
++$h3-font-size:                2rem !default;
++
++// Tables
++
++$table-accent-bg:             $gray-200 !default;
++
++// Dropdowns
++
++$dropdown-link-color:               $gray-700 !default;
++$dropdown-link-hover-color:         $white !default;
++$dropdown-link-hover-bg:            $primary !default;
++
++// Navs
++
++$nav-link-padding-y:                .5rem !default !default;
++$nav-link-padding-x:                2rem !default;
++$nav-link-disabled-color:           $gray-600 !default !default;
++
++$nav-tabs-border-color:             $gray-200 !default;
++
++// Navbar
++
++$navbar-padding-y:                  1rem !default;
++
++$navbar-dark-color:                 $white !default;
++$navbar-dark-hover-color:           $success !default;
++
++// Pagination
++
++$pagination-color:                  $white !default;
++$pagination-bg:                     $success !default;
++$pagination-border-width:           0 !default;
++$pagination-border-color:           transparent !default;
++
++$pagination-hover-color:            $white !default;
++$pagination-hover-bg:               darken($success, 15%) !default;
++$pagination-hover-border-color:     transparent !default;
++
++$pagination-active-bg:              $pagination-hover-bg !default;
++$pagination-active-border-color:    transparent !default;
++
++$pagination-disabled-color:         $gray-200 !default;
++$pagination-disabled-bg:            lighten($success, 15%) !default;
++$pagination-disabled-border-color:  transparent !default;
++
++// Progress bars
++
++$progress-height:                   0.625rem !default;
++$progress-font-size:                0.625rem !default;
++
++// List group
++
++$list-group-hover-bg:               $gray-200 !default;
++
++$list-group-disabled-bg:            $gray-200 !default;
++
++// Close
++
++$close-color:                       $white !default;
++$close-text-shadow:                 none !default;
