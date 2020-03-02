@@ -6,6 +6,8 @@ const cartListOpen = document.getElementById("openSidebar");
 const arr = [];
 import './styles.scss';
 
+let value = 0;
+
 (function loadData() {
 
     let xhr = new XMLHttpRequest();
@@ -70,6 +72,12 @@ function getData(data) {
             cardFooter.appendChild(availability);
         const addButton = document.createElement('button');
         addButton.classList.add('add-btn', 'btn', 'btn-primary');
+
+
+        const countBtnGrp = document.createElement('div');
+        countBtnGrp.setAttribute('role', 'group');
+        countBtnGrp.classList.add('btn-group');
+
         const addIcon = document.createElement('span');
         if(!available) {
             addButton.style.display = 'none';
@@ -77,8 +85,11 @@ function getData(data) {
 
         addButton.innerText = "Add";
         addButton.onclick = function() {
-          addToCart(event, ele[captions[1]]);
+            addToCart(event, ele[captions[1]]).forEach(ele =>
+                countBtnGrp.appendChild(ele));
         };
+
+        cardFooter.appendChild(countBtnGrp);
         cardFooter.appendChild(addButton);
         cardContent.appendChild(cardFooter);
         li.appendChild(cardContent);
@@ -88,9 +99,28 @@ function getData(data) {
 
     });
 }
+
+function getStepper() {
+    //Counter
+
+    const leftBtn = document.createElement('button');
+    leftBtn.classList.add('btn', 'btn-secondary', 'btn-left-btn');
+    leftBtn.innerText = '-';
+
+    const countLabel = document.createElement('button');
+    countLabel.classList.add('btn', 'btn-secondary', 'btn-center-btn');
+    countLabel.innerText = 1;
+
+    const rightBtn = document.createElement('button');
+    rightBtn.classList.add('btn', 'btn-secondary', 'btn-right-btn');
+    rightBtn.innerText = '+';
+
+    return [leftBtn,countLabel,rightBtn];
+}
+
 /*Add to cart*/
 function addToCart(e, singleId) {
-
+    // let countVal = 1;
     let addedBtn = e.target.classList.contains('add-btn') ? e.target : '',
         disabled = true,
         cartItem = document.createElement('div');
@@ -98,13 +128,26 @@ function addToCart(e, singleId) {
         sidebarPanel.classList.remove('hide');
         arr.forEach((ele, i) => {
             if (ele.id === singleId) {
-                cartItem.innerText = ele.title;
+                const cartItemLabel = document.createElement('label');
+                cartItemLabel.innerText = ele.title;
+                cartItem.appendChild(cartItemLabel);
                 sidebarPanel.appendChild(cartItem);
                 addedBtn.innerText = 'Added';
-                addedBtn.setAttribute('disabled', disabled);
+                addedBtn.style.display = 'none';
+
+                const countBtnGrp = document.createElement('div');
+                countBtnGrp.setAttribute('role', 'group');
+                countBtnGrp.classList.add('btn-group');
+                let a = getStepper();
+                a.forEach(ele =>
+                    countBtnGrp.appendChild(ele)
+                );
+                cartItem.appendChild(countBtnGrp);
             }
         });
         emptyCartLabel.innerText = '';
+
+        return getStepper();
     }
 }
 
@@ -119,3 +162,17 @@ cartListOpen.addEventListener('click', openSidebar);
 function openSidebar (e) {
     sidebarPanel.classList.toggle('hide');
 }
+
+/*Add count*/
+document.querySelector('body').addEventListener('click', e => {
+    if(e.target.classList.contains('btn-left-btn')) {
+        value = parseInt(e.target.nextElementSibling.innerText);
+        if(value > 0)
+            e.target.nextElementSibling.innerText = value - 1;
+
+    } else if (e.target.classList.contains('btn-right-btn'))  {
+        let value = parseInt(e.target.previousElementSibling.innerText);
+        if(value >= 0)
+            e.target.previousElementSibling.innerText = value + 1;
+    }
+});
