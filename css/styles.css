@@ -7280,18 +7280,13 @@ a.text-dark:hover, a.text-dark:focus {
   .modal .close:not(:disabled):not(.disabled):hover, .modal .close:not(:disabled):not(.disabled):focus {
     color: #000; }
 
+#root {
+  margin: 0;
+  max-width: none; }
+
 .hide {
   display: none; }
 
-li.list-item.card {
-  max-width: 338px; }
-
-.card-footer {
-  height: 63px; }
-
-/*.availability {*/
-/*position: absolute;*/
-/*}*/
 .sidebar {
   position: absolute;
   right: 0;
@@ -7320,3 +7315,28 @@ li.list-item.card {
   right: 1rem;
   text-align: center;
   font-size: 12px; }
+
+.card-container.card-content {
+  display: inline-block; }
+
+.card-container .card {
+  margin: 0;
+  display: inline-block;
+  width: 100%;
+  max-width: 400px;
+  min-width: 200px; }
+  .card-container .card .picture {
+    height: 12rem;
+    margin: 0; }
+  .card-container .card .card-header {
+    width: 99.99%;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden; }
+
+.card-container .card-footer {
+  height: 63px; }
+
+.card-container li {
+  list-style: none;
+  display: inline-block; }

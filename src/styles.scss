@@ -1,0 +1,77 @@
+
+
+@import "../scss/variables";
+@import "~bootstrap/scss/bootstrap";
+@import "../scss/bootswatch";
+
+#root{
+    margin: 0;
+    max-width: none;
+}
+.hide {
+    display: none;
+}
+.sidebar {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 20rem;
+    height: 100%;
+    background-color: #fff;
+    padding: 20px;
+    margin: 0;
+}
+.close-icon {
+    /*border: 1px solid;*/
+    border-radius: 50%;
+    position: absolute;
+    right: 0;
+    width: 30px;
+    height: 30px;
+    line-height: 20px;
+    text-align: center;
+    font-size: 12px;
+    padding: 0;
+}
+.open-sidebar-btn {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    text-align: center;
+    font-size: 12px;
+}
+.card-container {
+    &.card-content {
+        display: inline-block;
+    }
+    .card {
+        margin: 0;
+        display: inline-block;
+        width: 100%;
+        max-width: 400px;
+        min-width: 200px;
+        .picture {
+            //width: 200px;
+            height: 12rem;
+            margin: 0;
+        }
+        .card-header {
+            width: 99.99%;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            overflow: hidden;
+        }
+    }
+
+    .card-footer {
+        height: 63px;
+    }
+    li {
+        list-style: none;
+        display: inline-block;
+    }
+
+}
+.spru {
+    background-color: red;
+}

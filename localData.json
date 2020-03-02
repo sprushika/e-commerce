@@ -6,72 +6,164 @@
         "id": "ec1040",
         "color": "White",
         "price": 540,
-        "availability": "Available"
+        "availability": "Available",
+        "img": "ec1040.jpg"
       },
       {
         "title": "Maison Margiela Future Sneakers",
         "id": "ec1041",
         "color": "White",
         "price": 870,
-        "availability": "Out of stock"
+        "availability": "Out of stock",
+        "img": "ec1041.jpg"
       },
       {
         "title": "Our Legacy Brushed Scarf",
         "id": "ec1042",
         "color": "Brown",
         "price": 349,
-        "availability": "Available"
+        "availability": "Available",
+        "img": "ec1042.jpg"
       },
       {
         "title": "Anouk Rose Gold Ladies Watch",
         "id": "ec1043",
         "color": "Rose Gold",
         "price": 1500,
-        "availability": "Available"
+        "availability": "Available",
+        "img": "ec1043.jpg"
       },
       {
         "title": "Fantascia Loafer ",
         "id": "ec1044",
         "color": "Tan Brown",
         "price": 990,
-        "availability": "Out of stock"
-      }
-    ],
-    "ec1040": [
+        "availability": "Out of stock",
+        "img": "ec1044.jpg"
+      },
+
       {
         "title": "Common Projects Bball High ",
-        "id": "ec1040",
+        "id": "ec1045",
         "color": "White",
         "price": 540,
-        "availability": "Available"
-      }
-    ],
-    "ec1041": [
+        "availability": "Available",
+        "img": "ec1040.jpg"
+      },
       {
         "title": "Maison Margiela Future Sneakers",
-        "id": "ec1041",
+        "id": "ec1046",
         "color": "White",
         "price": 870,
-        "availability": "Out of stock"
-      }
-    ],
-    "ec1042": [
+        "availability": "Out of stock",
+        "img": "ec1041.jpg"
+      },
       {
         "title": "Our Legacy Brushed Scarf",
-        "id": "ec1042",
+        "id": "ec1047",
         "color": "Brown",
         "price": 349,
-        "availability": "Available"
+        "availability": "Available",
+        "img": "ec1042.jpg"
+      },
+      {
+        "title": "Anouk Rose Gold Ladies Watch",
+        "id": "ec1048",
+        "color": "Rose Gold",
+        "price": 1500,
+        "availability": "Available",
+        "img": "ec1043.jpg"
+      },
+      {
+        "title": "Fantascia Loafer ",
+        "id": "ec1049",
+        "color": "Tan Brown",
+        "price": 990,
+        "availability": "Out of stock",
+        "img": "ec1044.jpg"
+      },
+
+      {
+        "title": "Common Projects Bball High ",
+        "id": "ec1050",
+        "color": "White",
+        "price": 540,
+        "availability": "Available",
+        "img": "ec1040.jpg"
+      },
+      {
+        "title": "Maison Margiela Future Sneakers",
+        "id": "ec1051",
+        "color": "White",
+        "price": 870,
+        "availability": "Out of stock",
+        "img": "ec1041.jpg"
+      },
+      {
+        "title": "Our Legacy Brushed Scarf",
+        "id": "ec1052",
+        "color": "Brown",
+        "price": 349,
+        "availability": "Available",
+        "img": "ec1042.jpg"
+      },
+      {
+        "title": "Anouk Rose Gold Ladies Watch",
+        "id": "ec1053",
+        "color": "Rose Gold",
+        "price": 1500,
+        "availability": "Available",
+        "img": "ec1043.jpg"
+      },
+      {
+        "title": "Fantascia Loafer ",
+        "id": "ec1054",
+        "color": "Tan Brown",
+        "price": 990,
+        "availability": "Out of stock",
+        "img": "ec1044.jpg"
+      },
+
+      {
+        "title": "Common Projects Bball High ",
+        "id": "ec1055",
+        "color": "White",
+        "price": 540,
+        "availability": "Available",
+        "img": "ec1040.jpg"
+      },
+      {
+        "title": "Maison Margiela Future Sneakers",
+        "id": "ec1056",
+        "color": "White",
+        "price": 870,
+        "availability": "Out of stock",
+        "img": "ec1041.jpg"
+      },
+      {
+        "title": "Our Legacy Brushed Scarf",
+        "id": "ec1057",
+        "color": "Brown",
+        "price": 349,
+        "availability": "Available",
+        "img": "ec1042.jpg"
+      },
+      {
+        "title": "Anouk Rose Gold Ladies Watch",
+        "id": "ec1058",
+        "color": "Rose Gold",
+        "price": 1500,
+        "availability": "Available",
+        "img": "ec1043.jpg"
+      },
+      {
+        "title": "Fantascia Loafer ",
+        "id": "ec1059",
+        "color": "Tan Brown",
+        "price": 990,
+        "availability": "Out of stock",
+        "img": "ec1044.jpg"
       }
-    ],
-    "ec1043": [
-    {
-      "title": "Anouk Rose Gold Ladies Watch",
-      "id": "ec1043",
-      "color": "Rose Gold",
-      "price": 1500,
-      "availability": "Available"
-    }
-  ]
+    ]
   }
 ]
