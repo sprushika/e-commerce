@@ -1,12 +1,15 @@
+import './styles.scss';
+
+
 const ul = document.getElementById("output");
 const sidebarPanel = document.getElementById("sidebar");
 const emptyCartLabel = document.getElementById("empty-cart");
 const cartListClose = document.getElementById("closeSidebar");
 const cartListOpen = document.getElementById("openSidebar");
-const arr = [];
-import './styles.scss';
-
-let value = 0;
+const cartItem = document.createElement('div');
+const allData = [],
+      myStorage = JSON.parse(localStorage.getItem('myStorage'));
+let qt = 0;
 
 (function loadData() {
 
@@ -22,15 +25,53 @@ let value = 0;
     };
     xhr.send();
 })();
+
+function createCartListItem(listName, qtVal, isCartList) {
+    const cartItemLabel = document.createElement('label');
+    cartItemLabel.classList.add('cart-list-item-label');
+
+
+    const countBtnGrp = document.createElement('div');
+    countBtnGrp.setAttribute('role', 'group');
+    countBtnGrp.classList.add('btn-group');
+
+    getStepper(qtVal).forEach(ele =>
+        countBtnGrp.appendChild(ele)
+    );
+
+    cartItemLabel.innerText = listName;
+    cartItem.appendChild(cartItemLabel);
+    cartItem.appendChild(countBtnGrp);
+
+    sidebarPanel.appendChild(cartItem);
+
+    if(isCartList === 'main-page') {
+        const cartItemLabel = document.createElement('label');
+        cartItemLabel.classList.add('cart-list-item-label');
+
+
+        const countBtnGrp = document.createElement('div');
+        countBtnGrp.setAttribute('role', 'group');
+        countBtnGrp.classList.add('btn-group');
+
+        getStepper(qtVal).forEach(ele =>
+            (countBtnGrp.appendChild(ele))
+        );
+        return countBtnGrp;
+    }
+}
+
 function getData(data) {
 
     let dataArr = JSON.parse(data)[0].products,
         captions = Object.keys(dataArr[0]),
-        disabled = true;
+        disabled = true,
+        lSQuantityVal;
 
     dataArr.forEach((ele, index) => {
-        arr.push(ele);
         let available = ele[captions[4]] === 'Available';
+        //Get all the data into allData array
+        allData.push(ele);
 
         const li = document.createElement("li");
         li.classList.add("col-xs-2", "col-sm-4", "col-md-3", "col-lg-3", "text-center");
@@ -49,6 +90,47 @@ function getData(data) {
         const picture = document.createElement("img");
         picture.classList.add("picture","card-img-top");
 
+        //Add button
+        const cardFooter = document.createElement('div');
+        cardFooter.classList.add('card-footer', 'text-center');
+        if(ele[captions[4]] !== 'Available')
+            cardFooter.appendChild(availability);
+        const addButton = document.createElement('button');
+        addButton.classList.add('add-btn', 'btn', 'btn-primary');
+        addButton.innerText = "Add";
+
+        if(!available) {
+            addButton.style.display = 'none';
+        } else if(myStorage !== null) {
+            //Add the same items to the cart list
+            myStorage.forEach(item => {
+                if(ele[captions[1]] === item.id) {
+
+                    //Counter btn group
+                    const countBtnGrp = document.createElement('div');
+                    countBtnGrp.setAttribute('role', 'group');
+                    countBtnGrp.classList.add('btn-group');
+
+                    let getCBG = createCartListItem(ele.title, item.quantity, 'main-page');
+                    getCBG.classList.add('card-btn-group');
+                    cardFooter.appendChild(getCBG);
+                    cardFooter.appendChild(addButton);
+                    cardContent.appendChild(cardFooter);
+                    li.appendChild(cardContent);
+
+                    //Send to the html
+                    ul.appendChild(li);
+
+                    //Don't allow to add those items
+                    addButton.innerText = 'Added';
+                    addButton.style.display = 'none';
+
+                }
+            })
+        } else if(available && myStorage === null) {
+
+        }
+
         title.textContent = ele[captions[0]];
         idValue.textContent = ele[captions[1]];
         color.textContent = ele[captions[2]];
@@ -65,42 +147,26 @@ function getData(data) {
         cardContent.appendChild(picture);
         cardContent.appendChild(cardBody);
 
-        //Add button
-        const cardFooter = document.createElement('div');
-        cardFooter.classList.add('card-footer', 'text-center');
-        if(ele[captions[4]] !== 'Available')
-            cardFooter.appendChild(availability);
-        const addButton = document.createElement('button');
-        addButton.classList.add('add-btn', 'btn', 'btn-primary');
-
-
         const countBtnGrp = document.createElement('div');
         countBtnGrp.setAttribute('role', 'group');
         countBtnGrp.classList.add('btn-group');
 
-        const addIcon = document.createElement('span');
-        if(!available) {
-            addButton.style.display = 'none';
-        }
-
-        addButton.innerText = "Add";
         addButton.onclick = function() {
             addToCart(event, ele[captions[1]]).forEach(ele =>
                 countBtnGrp.appendChild(ele));
         };
-
         cardFooter.appendChild(countBtnGrp);
         cardFooter.appendChild(addButton);
         cardContent.appendChild(cardFooter);
         li.appendChild(cardContent);
-
+        li.setAttribute('id',ele[captions[1]]);
         //Send to the html
         ul.appendChild(li);
 
     });
 }
 
-function getStepper() {
+function getStepper(qtVal) {
     //Counter
 
     const leftBtn = document.createElement('button');
@@ -109,7 +175,7 @@ function getStepper() {
 
     const countLabel = document.createElement('button');
     countLabel.classList.add('btn', 'btn-secondary', 'btn-center-btn');
-    countLabel.innerText = 1;
+    countLabel.innerText = qtVal;
 
     const rightBtn = document.createElement('button');
     rightBtn.classList.add('btn', 'btn-secondary', 'btn-right-btn');
@@ -120,34 +186,32 @@ function getStepper() {
 
 /*Add to cart*/
 function addToCart(e, singleId) {
-    // let countVal = 1;
     let addedBtn = e.target.classList.contains('add-btn') ? e.target : '',
-        disabled = true,
-        cartItem = document.createElement('div');
+        localObj = {};
+
     if(e.target === addedBtn) {
+        //Show the sidebar panel
         sidebarPanel.classList.remove('hide');
-        arr.forEach((ele, i) => {
+
+        allData.forEach((ele, i) => {
             if (ele.id === singleId) {
-                const cartItemLabel = document.createElement('label');
-                cartItemLabel.innerText = ele.title;
-                cartItem.appendChild(cartItemLabel);
-                sidebarPanel.appendChild(cartItem);
+
+                createCartListItem(ele.title, qtVal);
+
                 addedBtn.innerText = 'Added';
                 addedBtn.style.display = 'none';
 
-                const countBtnGrp = document.createElement('div');
-                countBtnGrp.setAttribute('role', 'group');
-                countBtnGrp.classList.add('btn-group');
-                let a = getStepper();
-                a.forEach(ele =>
-                    countBtnGrp.appendChild(ele)
-                );
-                cartItem.appendChild(countBtnGrp);
+                localObj = {"id": singleId, "value": ele.title, "quantity": qtVal};
+
+                myStorage.push(localObj);
+
+                /*Local storage*/
+                localStorage.setItem('myStorage', JSON.stringify(myStorage));
             }
         });
         emptyCartLabel.innerText = '';
 
-        return getStepper();
+        return getStepper(qtVal);
     }
 }
 
@@ -165,14 +229,26 @@ function openSidebar (e) {
 
 /*Add count*/
 document.querySelector('body').addEventListener('click', e => {
-    if(e.target.classList.contains('btn-left-btn')) {
-        value = parseInt(e.target.nextElementSibling.innerText);
-        if(value > 0)
-            e.target.nextElementSibling.innerText = value - 1;
+    if(e.target.classList.contains('btn-left-btn','card-btn-group')) {
+        qt = parseInt(e.target.nextElementSibling.innerText);
+        if(qt > 0) {
+            e.target.nextElementSibling.innerText = qt - 1;
+        }
+        storeToLS(e.target.offsetParent.offsetParent.offsetParent.id, e.target.nextElementSibling.innerText);
 
-    } else if (e.target.classList.contains('btn-right-btn'))  {
-        let value = parseInt(e.target.previousElementSibling.innerText);
-        if(value >= 0)
-            e.target.previousElementSibling.innerText = value + 1;
+    } else if (e.target.classList.contains('btn-right-btn','card-btn-group'))  {
+        let qt = parseInt(e.target.previousElementSibling.innerText);
+        if(qt >= 0)
+            e.target.previousElementSibling.innerText = qt + 1;
+        storeToLS( e.target.offsetParent.offsetParent.offsetParent.id, e.target.previousElementSibling.innerText);
+    }
+    function storeToLS(itemId, q) {
+        let allData = JSON.parse(localStorage.getItem('myStorage'));
+        allData.forEach(ele => {
+            if(itemId && ele.id === itemId) {
+                ele.quantity = q;
+            }
+        });
+        localStorage.setItem('myStorage', JSON.stringify(allData));
     }
 });
