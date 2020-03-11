@@ -6,9 +6,9 @@ const sidebarPanel = document.getElementById("sidebar");
 const emptyCartLabel = document.getElementById("empty-cart");
 const cartListClose = document.getElementById("closeSidebar");
 const cartListOpen = document.getElementById("openSidebar");
-const cartItem = document.createElement('div');
-const allData = [],
-      myStorage = JSON.parse(localStorage.getItem('myStorage'));
+const cartActions = document.createElement('div');
+const allData = [];
+let myStorage = JSON.parse(localStorage.getItem('myStorage')) || [];
 let qt = 0;
 
 (function loadData() {
@@ -120,6 +120,7 @@ function getData(data) {
             addToCart(event, ele[captions[1]]).forEach(ele =>
                 countBtnGrp.appendChild(ele));
         };
+        countBtnGrp.classList.add('card-btn-group');
         cardFooter.appendChild(countBtnGrp);
         cardFooter.appendChild(addButton);
         cardContent.appendChild(cardFooter);
@@ -149,12 +150,14 @@ function addToCart(e, singleId) {
         allData.forEach((ele, i) => {
             if (ele.id === singleId) {
 
-                createCartListItem(ele.title, qtVal);
+                createCartListItem(ele.title, 1, 'cart-list');
 
                 addedBtn.innerText = 'Added';
                 addedBtn.style.display = 'none';
 
-                localObj = {"id": singleId, "value": ele.title, "quantity": qtVal};
+                localObj = {"id": singleId, "value": ele.title, "quantity": 1};
+
+                let myStorage = JSON.parse(localStorage.getItem('myStorage')) || [];
 
                 myStorage.push(localObj);
 
@@ -164,14 +167,20 @@ function addToCart(e, singleId) {
         });
         emptyCartLabel.innerText = '';
 
-        return getStepper(qtVal);
+        return getStepper(1);
     }
 }
 
 /*Cart list item*/
 function createCartListItem(listName, qtVal, isCartList) {
+
+    const li = document.createElement('li');
+    li.classList.add('cart-list');
     const cartItemLabel = document.createElement('label');
     cartItemLabel.classList.add('cart-list-item-label');
+    const deleteItem = document.createElement('button');
+    deleteItem.innerText = 'x';
+    deleteItem.classList.add('btn','btn-rounded','btn-outline-danger','btn-sm','cart-item-delete');
 
 
     const countBtnGrp = document.createElement('div');
@@ -183,10 +192,12 @@ function createCartListItem(listName, qtVal, isCartList) {
     );
 
     cartItemLabel.innerText = listName;
-    cartItem.appendChild(cartItemLabel);
-    cartItem.appendChild(countBtnGrp);
+    cartActions.appendChild(countBtnGrp);
+    cartActions.appendChild(deleteItem);
 
-    sidebarPanel.appendChild(cartItem);
+    li.appendChild(cartItemLabel);
+    li.appendChild(cartActions);
+    sidebarPanel.appendChild(li);
 
     if(isCartList === 'main-page') {
         const cartItemLabel = document.createElement('label');
@@ -224,23 +235,26 @@ function getStepper(qtVal) {
 
 /*Open my order list*/
 cartListOpen.addEventListener('click', openSidebar);
-function openSidebar (e) {
+function openSidebar () {
     sidebarPanel.classList.toggle('hide');
 }
 
 /*Add count*/
 document.querySelector('body').addEventListener('click', e => {
-    if(e.target.classList.contains('btn-left-btn','card-btn-group')) {
+    if(e.target.classList.contains('btn-left-btn')) {
         qt = parseInt(e.target.nextElementSibling.innerText);
-        if(qt > 0) {
+        if(qt > 0)
             e.target.nextElementSibling.innerText = qt - 1;
-        }
-        storeToLS(e.target.offsetParent.offsetParent.offsetParent.id, e.target.nextElementSibling.innerText);
 
-    } else if (e.target.classList.contains('btn-right-btn','card-btn-group'))  {
+        if(e.target.offsetParent.classList.contains('card-btn-group'))
+            storeToLS(e.target.offsetParent.offsetParent.offsetParent.id, e.target.nextElementSibling.innerText);
+
+    } else if (e.target.classList.contains('btn-right-btn'))  {
         let qt = parseInt(e.target.previousElementSibling.innerText);
         if(qt >= 0)
             e.target.previousElementSibling.innerText = qt + 1;
+
+        if(e.target.offsetParent.classList.contains('card-btn-group'))
         storeToLS( e.target.offsetParent.offsetParent.offsetParent.id, e.target.previousElementSibling.innerText);
     }
     function storeToLS(itemId, q) {
@@ -251,5 +265,20 @@ document.querySelector('body').addEventListener('click', e => {
             }
         });
         localStorage.setItem('myStorage', JSON.stringify(allData));
+    }
+});
+
+document.querySelector('button').addEventListener('click', e => {
+    if(e.target.classList.contains('btn-left-btn','card-btn-group')) {
+        console.log(parseInt(e.target.nextElementSibling.innerText));
+    } else if(e.target.classList.contains('cart-item-delete')) {
+        let allData = JSON.parse(localStorage.getItem('myStorage'));
+        allData.forEach((ele, index) => {
+            if(ele.id === e.target.offsetParent.offsetParent) {
+                allData.slice(index,0);
+                e.target.style.display = 'none';
+                localStorage.setItem('myStorage', JSON.stringify(allData));
+            }
+        });
     }
 });

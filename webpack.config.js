@@ -21,6 +21,12 @@ module.exports = {
                     'sass-loader',
                 ],
             },
+            {
+                test: /\.tsx?$/,
+                loader: 'awesome-typescript-loader'
+            },
+            { test: /\.js$/, loader: "source-map-loader" }
+
         ]
     }
 };
