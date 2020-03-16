@@ -282,3 +282,19 @@ document.querySelector('button').addEventListener('click', e => {
         });
     }
 });
+
+/*    getProducts() {
+        let xhr = new XMLHttpRequest();
+        return new Promise((res, rej) => {
+           xhr.onreadystatechange = () => {
+               if(xhr.readyState !== 4)
+                   return;
+               if(xhr.status >= 200 && xhr.status < 300)
+                   res(JSON.parse(xhr.responseText));
+               else
+                   rej(xhr.statusText);
+           };
+            xhr.open('GET', './localData.json', true);
+            xhr.send();
+        });
+    }*/
